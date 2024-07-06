@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Analysis Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #30aea3;
+            margin: 20px;
+            color: #fff; /* Text color for better contrast */
+        }
+        h1 {
+            color: #ffee00; /* Highlighted title color */
+            text-align: center;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #fff200; /* Highlighted section title color */
+            margin-top: 20px; /* More spacing between sections */
+        }
+        h3 {
+           
+            margin-top: 10px;
+        }
+        p {
+           
+            margin: 0;
+        }
+        ul {
+            list-style-type: square;
+            color: #ffffff; /* List text color */
+            margin: 0;
+            padding-left: 20px;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 80%;
+        }
+
+        /* Style the header and footer */
+        header, footer {
+            background-color: #007BFF;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Style links */
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Add spacing between sections */
+        section {
+            margin-bottom: 20px;
+        }
+        .graph-container {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sample Analysis Result</h1>
+    </header>
+
+    <section>
+        <!-- Display Sample Name -->
+        <h2>Sample Name: {{ result_data['sample_name'] }}</h2>
+    </section>
+
+    <section>
+        <!-- Display Taste -->
+        <h3>Taste: {{ result_data['taste'] }}</h3>
+    </section>
+
+    <section>
+        <!-- Display Composition -->
+        <h3>Composition:</h3>
+        <p>{{ result_data['composition'] }}</p>
+    </section>
+
+    <section>
+        <!-- Display Nutritional Values -->
+        <h3>Nutritional Values:</h3>
+        <ul>
+            {% for nutrient, value in result_data['nutritional_values'].items() %}
+                <li>{{ nutrient }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <!-- Display Health Benefits -->
+        <h3>Health Benefits:</h3>
+        <ul>
+            {% for benefit in result_data['health_benefits'] %}
+                <li>{{ benefit }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+    <div class="graph-container">
+        <!-- Place your Matplotlib Plot here -->
+        <h2>Absorbance VS Wavelength</h2>
+        <img src="data:image/png;base64,{{ result_data.plot_data }}" alt="Absorbance vs. Wavelength">
+    </div>
+    <footer>
+        <p>&copy; 2023 Your Company Name</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a535c;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px; /* Adjust the width as needed */
+            margin: 0 auto;
+            padding: 50px;
+            border: 3px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #007BFF;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Style the input fields when they are invalid (e.g., missing required data) */
+        input:invalid {
+            border-color: #ff5555;
+            box-shadow: 0 0 5px rgba(255, 85, 85, 0.5);
+        }
+
+        /* Style the input fields when they are valid */
+        input:valid {
+            border-color: #55ff55;
+            box-shadow: 0 0 5px rgba(85, 255, 85, 0.5);
+        }
+
+        /* Add some spacing between the form elements */
+        form {
+            margin-top: 20px;
+        }
+
+        /* Style the form on small screens */
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sample Analysis</h1>
+        <form action="/" method="POST">
+            <label for="sample_name">Sample Name:</label>
+            <input type="text" id="sample_name" name="sample_name" required>
+            
+            <label for="wavelength">Wavelength (nm):</label>
+            <input type="number" id="wavelength" name="wavelength" required>
+            
+            <label for="absorbance">Absorbance:</label>
+            <input type="number" id="absorbance" name="absorbance" step="0.01" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
